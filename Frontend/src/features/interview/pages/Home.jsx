@@ -2,10 +2,12 @@ import React, { useState, useRef } from 'react'
 import "../style/home.scss"
 import { useInterview } from '../hooks/useInterview.js'
 import { useNavigate } from 'react-router'
+import { useAuth } from '../../auth/hooks/useAuth'
 
 const Home = () => {
 
     const { loading, generateReport,reports } = useInterview()
+    const { user, handleLogout } = useAuth()
     const [ jobDescription, setJobDescription ] = useState("")
     const [ selfDescription, setSelfDescription ] = useState("")
     const [fileName, setFileName] = useState("")
@@ -37,17 +39,26 @@ const Home = () => {
     }
 
     return (
-        <div className='home-page'>
+        <div className='home-container'>
+            <nav className='app-navbar'>
+                <div className='app-navbar__left'>
+                    <span className='app-navbar__logo'>Interview Buddy</span>
+                </div>
+                <div className='app-navbar__center'>
+                    <span className='app-navbar__title'>Create Your Custom Interview Plan</span>
+                </div>
+                <div className='app-navbar__right'>
+                    <div className='user-profile'>
+                        <span className='user-profile__name'>{user?.username || user?.email || 'User'}</span>
+                        <button className='button logout-btn' onClick={handleLogout}>Logout</button>
+                    </div>
+                </div>
+            </nav>
 
-            {/* Page Header */}
-            <header className='page-header'>
-                <h1>Create Your Custom <span className='highlight'>Interview Plan</span></h1>
-                <p>Let our AI analyze the job requirements and your unique profile to build a winning strategy.</p>
-            </header>
-
-            {/* Main Card */}
-            <div className='interview-card'>
-                <div className='interview-card__body'>
+            <div className='home-page'>
+                {/* Main Card */}
+                <div className='interview-card'>
+                    <div className='interview-card__body'>
 
                     {/* Left Panel - Job Description */}
                     <div className='panel panel--left'>
@@ -167,6 +178,7 @@ const Home = () => {
                 <a href='#'>Terms of Service</a>
                 <a href='#'>Help Center</a>
             </footer>
+        </div>
         </div>
     )
 }

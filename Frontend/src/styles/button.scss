@@ -10,8 +10,16 @@
 
 &.primary-button{
     width: 100%;
-    background-color: #e1034d;
-    color: white;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+
+    &:hover {
+        background-color: #1d4ed8;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        transform: translateY(-1px);
+    }
 }
 
 &:active{

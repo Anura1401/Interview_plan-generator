@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../style/interview.scss'
 import { useInterview } from '../hooks/useInterview.js'
 import { useNavigate, useParams } from 'react-router'
+import { useAuth } from '../../auth/hooks/useAuth'
 
 
 
@@ -62,6 +63,7 @@ const Interview = () => {
     const navigate = useNavigate()
     const [ activeNav, setActiveNav ] = useState('technical')
     const { report, getReportById, loading, getResumePdf } = useInterview()
+    const { user, handleLogout } = useAuth()
     const { interviewId } = useParams()
 
     useEffect(() => {
@@ -96,8 +98,24 @@ const Interview = () => {
 
 
     return (
-        <div className='interview-page'>
-            <div className='interview-layout'>
+        <div className='interview-container'>
+            <nav className='app-navbar'>
+                <div className='app-navbar__left' onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
+                    <span className='app-navbar__logo'>Interview Buddy</span>
+                </div>
+                <div className='app-navbar__center'>
+                    <span className='app-navbar__title'>{report?.title ? `${report.title} Plan` : 'Interview Plan'}</span>
+                </div>
+                <div className='app-navbar__right'>
+                    <div className='user-profile'>
+                        <span className='user-profile__name'>{user?.username || user?.email || 'User'}</span>
+                        <button className='button logout-btn' onClick={handleLogout}>Logout</button>
+                    </div>
+                </div>
+            </nav>
+
+            <div className='interview-page'>
+                <div className='interview-layout'>
 
                 {/* ── Left Nav ── */}
                 <nav className='interview-nav'>
@@ -228,6 +246,7 @@ const Interview = () => {
 
                 </aside>
             </div>
+        </div>
         </div>
     )
 }

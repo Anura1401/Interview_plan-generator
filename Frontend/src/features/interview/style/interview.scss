@@ -1,18 +1,18 @@
 // ── Shared Variables (mirrors home.scss theme) ────────────────────────────────
-$bg-page: #0d1117;
-$bg-card: #161b22;
-$bg-panel: #1c2230;
-$bg-input: #1e2535;
-$border-color: #2a3348;
-$text-primary: #e6edf3;
-$text-muted: #7d8590;
-$accent: #ff2d78;
+$bg-page: #f8fafc; // Soft slate-50 background
+$bg-card: #ffffff; // White dashboard container
+$bg-panel: #f1f5f9; // Slate-100 panels
+$bg-input: #ffffff; // White inputs
+$border-color: #e2e8f0; // Slate-200 borders
+$text-primary: #0f172a; // Slate-900 text
+$text-muted: #64748b; // Slate-500 text
+$accent: #2563eb; // Cobalt Blue accent
 $font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
 // severity palette
-$severity-high: #ff4d4d;
-$severity-medium: #f5a623;
-$severity-low: #3fb950;
+$severity-high: #ef4444; // Coral Red
+$severity-medium: #f5a623; // Amber Orange
+$severity-low: #10b981; // Emerald Green
 
 *::-webkit-scrollbar {
     display: none;
@@ -21,26 +21,30 @@ $severity-low: #3fb950;
 // ── Page Shell ────────────────────────────────────────────────────────────────
 .interview-page {
     width: 100%;
-    min-height: 100vh;
+    height: calc(100vh - 56px);
+    min-height: calc(100vh - 56px);
     background-color: $bg-page;
     color: $text-primary;
     font-family: $font-stack;
     display: flex;
     align-items: stretch;
-    padding: 1.5rem;
+    padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 // ── 3-Column Layout ───────────────────────────────────────────────────────────
 .interview-layout {
     display: flex;
     width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
     background-color: $bg-card;
-    border: 1px solid $border-color;
-    border-radius: 1rem;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
     justify-content: space-between;
+    height: 100%;
 }
 
 .interview-divider {
@@ -58,9 +62,9 @@ $severity-low: #3fb950;
     flex-direction: column;
     justify-content: space-between;
     gap: 0.25rem;
-
-
-
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
 
     &__label {
         font-size: 0.7rem;
@@ -94,7 +98,7 @@ $severity-low: #3fb950;
         }
 
         &--active {
-            background-color: rgba($accent, 0.1);
+            background-color: rgba($accent, 0.08);
             color: $accent;
 
             .interview-nav__icon svg {
@@ -115,10 +119,11 @@ $severity-low: #3fb950;
     flex: 1;
     padding: 1.75rem 2rem;
     overflow-y: auto;
-    min-height: initial;
-    max-height: calc(100vh - 3rem);
+    height: 100%;
+    max-height: 100%;
     padding-bottom: 5rem;
     align-items: flex-start;
+    box-sizing: border-box;
 
 
 
@@ -234,7 +239,7 @@ $severity-low: #3fb950;
         p {
             margin: 0;
             font-size: 0.835rem;
-            color: lighten($text-muted, 15%);
+            color: #334155;
             line-height: 1.6;
         }
     }
@@ -255,9 +260,9 @@ $severity-low: #3fb950;
         }
 
         &--answer {
-            color: #3fb950;
-            background-color: rgba(#3fb950, 0.1);
-            border: 1px solid rgba(#3fb950, 0.2);
+            color: $accent;
+            background-color: rgba($accent, 0.08);
+            border: 1px solid rgba($accent, 0.2);
         }
     }
 }
@@ -338,7 +343,7 @@ $severity-low: #3fb950;
             align-items: flex-start;
             gap: 0.5rem;
             font-size: 0.845rem;
-            color: lighten($text-muted, 12%);
+            color: #475569;
             line-height: 1.5;
         }
     }
@@ -361,6 +366,9 @@ $severity-low: #3fb950;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .sidebar-divider {
@@ -511,7 +519,7 @@ $severity-low: #3fb950;
         margin: 0;
         font-size: 0.85rem;
         line-height: 1.6;
-        color: lighten($text-muted, 15%);
+        color: #334155;
     }
 
     pre {
@@ -520,11 +528,11 @@ $severity-low: #3fb950;
         font-size: 0.85rem;
         line-height: 1.6;
         white-space: pre-wrap;
-        color: lighten($text-muted, 15%);
-        background-color: rgba($bg-page, 0.5);
+        color: #334155;
+        background-color: #ffffff;
         padding: 0.75rem;
         border-radius: 0.4rem;
-        border: 1px solid rgba($border-color, 0.5);
+        border: 1px solid $border-color;
     }
 }
 

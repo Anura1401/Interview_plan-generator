@@ -13,12 +13,12 @@ main{
         gap: 1rem;
 
         .error-message {
-            color: #e1034d;
+            color: #dc2626;
             font-size: 0.875rem;
-            background-color: rgba(225, 3, 77, 0.1);
+            background-color: rgba(239, 68, 68, 0.08);
             padding: 0.75rem;
             border-radius: 0.75rem;
-            border: 1px solid rgba(225, 3, 77, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.15);
             text-align: center;
         }
     }
@@ -36,17 +36,34 @@ main{
         gap: 0.5rem;
 
         input{
-            border: none;
+            border: 1px solid #e2e8f0;
+            background-color: #ffffff;
             outline: none;
             padding-inline: 1rem;
             padding: 0.75rem;
-            border-radius:0.75rem;
+            border-radius: 0.75rem;
+            color: #0f172a;
+            transition: all 0.2s ease-in-out;
+
+            &::placeholder {
+                color: #94a3b8;
+            }
+
+            &:focus {
+                border-color: #2563eb;
+                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+            }
         }
     }
 
     a{
-        color: #e1034d;
+        color: #2563eb;
         text-decoration: none;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.85;
+        }
     }
 
 }

@@ -10,11 +10,86 @@ html,
 body,
 #root{
     width: 100%;
-    background-color: #000;
-    color: whitesmoke;
+    background-color: #f8fafc;
+    color: #0f172a;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .highlight{
-    color: #e1034d;
+    color: #2563eb;
+}
+
+// ── Global Navbar ─────────────────────────────────────────────────────────────
+.app-navbar {
+    width: 100%;
+    height: 56px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 2rem;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    &__left {
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #0f172a;
+        letter-spacing: -0.03em;
+        text-transform: tracking;
+    }
+
+    &__center {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        font-size: 0.925rem;
+        font-weight: 600;
+        color: #334155;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &__name {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #475569;
+    }
+
+    .logout-btn {
+        background-color: #f1f5f9;
+        color: #475569;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 0.45rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid #e2e8f0;
+        transition: all 0.2s ease;
+        outline: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #e2e8f0;
+            color: #0f172a;
+        }
+    }
 }

@@ -1,23 +1,23 @@
 // ── Variables ────────────────────────────────────────────────────────────────
-$bg-page:        #0d1117;
-$bg-card:        #161b22;
-$bg-panel:       #1c2230;
-$bg-input:       #1e2535;
-$border-color:   #2a3348;
-$text-primary:   #e6edf3;
-$text-muted:     #7d8590;
-$accent:         #ff2d78;
-$accent-alt:     #ff6b9d;
-$badge-required: #ff2d78;
-$badge-best:     #ff2d78;
-$info-bg:        #1b2a4a;
-$info-border:    #2d4a7a;
+$bg-page:        #f8fafc; // Soft slate-50 background
+$bg-card:        #ffffff; // Pure White card
+$bg-panel:       #f1f5f9; // Slate-100 panel
+$bg-input:       #ffffff; // White inputs
+$border-color:   #e2e8f0; // Slate-200 borders
+$text-primary:   #0f172a; // Slate-900 text
+$text-muted:     #64748b; // Slate-500 text
+$accent:         #2563eb; // Cobalt Blue
+$accent-alt:     #1d4ed8; // Darker Cobalt
+$badge-required: #dc2626; // Red alert
+$badge-best:     #16a34a; // Green alert
+$info-bg:        #eff6ff; // Light blue info background
+$info-border:    #bfdbfe; // Blue border
 $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
 // ── Page Shell ───────────────────────────────────────────────────────────────
 .home-page {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 56px);
     background-color: $bg-page;
     color: $text-primary;
     font-family: $font-stack;
@@ -26,8 +26,9 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem 1.5rem;
+    padding: 2rem 1.5rem;
     gap: 2rem;
+    box-sizing: border-box;
 }
 
 // ── Page Header ──────────────────────────────────────────────────────────────
@@ -39,6 +40,7 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
         font-weight: 700;
         margin-bottom: 0.5rem;
         color: $text-primary;
+        letter-spacing: -0.025em;
     }
 
     p {
@@ -62,6 +64,7 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
     border: 1px solid $border-color;
     border-radius: 1rem;
     overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03), 0 10px 15px -3px rgba(0, 0, 0, 0.03);
 
     &__body {
         display: flex;
@@ -279,18 +282,18 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 
     &__icon {
         flex-shrink: 0;
-        color: #4a90e2;
+        color: #2563eb;
         margin-top: 1px;
     }
 
     p {
         margin: 0;
         font-size: 0.8rem;
-        color: #8ab4f8;
+        color: #1e3a8a;
         line-height: 1.5;
 
         strong {
-            color: $text-primary;
+            color: #1e293b;
         }
     }
 }
@@ -301,18 +304,21 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, $accent 0%, darken($accent, 10%) 100%);
-    color: #fff;
+    background-color: #2563eb;
+    color: #ffffff;
     font-size: 0.9rem;
     font-weight: 600;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: opacity 0.2s, transform 0.1s;
+    transition: all 0.2s ease-in-out;
     font-family: $font-stack;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
 
     &:hover {
-        opacity: 0.9;
+        background-color: #1d4ed8;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        transform: translateY(-1px);
     }
 
     &:active {
@@ -333,16 +339,25 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
         flex-wrap: wrap;
 
         .report-item{
-            background-color: $bg-card;
+            background-color: #ffffff;
             border: 1px solid $border-color;
-            border-radius: 0.5rem;
-            padding: 1rem;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
             flex: 1;
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
             cursor: pointer;
             flex-shrink: 0;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+
+            &:hover {
+                transform: translateY(-2px);
+                border-color: $accent;
+                box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+                background-color: #f8fafc;
+            }
 
             .match-score {
                 font-size: 0.8rem;
